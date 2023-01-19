@@ -1,13 +1,11 @@
 <template>
-    <div>
-        首页
-    </div>
+    <div>leave</div>
 
 </template>
 
 <script>
 export default {
-    name: 'Home',
+    name: 'Leave',
     data() {
         return {
         };

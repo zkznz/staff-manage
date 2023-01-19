@@ -40,10 +40,14 @@ request.interceptors.response.use(response => {
     ElementUI.Message({
       message: res.message, type: 'error'
     })
-    store.dispatch("logout");
-    return Promise.reject()
+    store.dispatch("loginOut");
   }
-
+  if (res.code == 1000) {
+    ElementUI.Message({
+      message: res.message, type: 'error'
+    })
+    store.dispatch("loginOut");
+  }
   // 如果是返回的文件
   if (response.config.responseType === 'blob') {
     return res
