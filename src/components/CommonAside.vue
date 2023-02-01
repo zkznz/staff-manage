@@ -50,6 +50,9 @@ export default {
         this.$bus.$on("collapsed", () => {
             this.isCollapse = !this.isCollapse;
         })
+    },
+    beforeDestroy() {
+        this.$bus.$off("collapsed");
     }
 };
 </script>
@@ -57,6 +60,7 @@ export default {
 .el-menu {
     border-right: none;
     height: 100vh;
+    background: #333744
 }
 
 

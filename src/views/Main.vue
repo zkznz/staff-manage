@@ -38,8 +38,8 @@ export default {
     padding: 0;
 }
 
-CommonTag {
-    margin-left: 20px;
+.el-aside {
+    background-color: #333744
 }
 
 /*清除滚动条*/

@@ -37,9 +37,6 @@ request.interceptors.response.use(response => {
   nprogress.done();
   // 当员工状态异常时，直接退出登录
   if (res.code === 10000) {
-    ElementUI.Message({
-      message: res.message, type: 'error'
-    })
     store.dispatch("loginOut");
   }
   if (res.code == 1000) {

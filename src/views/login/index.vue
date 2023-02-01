@@ -52,10 +52,10 @@ export default {
           if (res.code == 200) {
             localStorage.setItem("staff", JSON.stringify(res.data));
             localStorage.setItem("token", res.token);
-            this.$message.success("登录成功！");
             this.$router.push({
               path: '/'
             })
+            this.$message.success("登录成功！");
           }
           else {
             this.$message.error(res.message)

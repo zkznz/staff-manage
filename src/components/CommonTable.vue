@@ -1,0 +1,91 @@
+<template>
+    <div>
+        <el-table :data="tableData" @selection-change="selectionChange" :height="height ? `${height}px` : '85%'" border
+            stripe row-key="id" :header-cell-style="{
+                background: '#eef1f6', color: '#606266',
+                textAlign: 'center', fontWeight: 'bold'
+            }">
+            <el-table-column type="selection" width="50" v-if="hasSelect"> </el-table-column>
+            <el-table-column type="index" v-if="hasIndex" label="序号" width="80"></el-table-column>
+
+            <template v-for="(item, index) in columnOptions">
+                <!-- 需要使用插槽 -->
+                <el-table-column v-if="item.columnType" :key="item.label" :label="item.label"
+                    :min-width="item.width ? item.width : 125">
+                    <template slot-scope="{ row }">
+                        <slot :name="item.slotName" :data="row"></slot>
+                    </template>
+                </el-table-column>
+                <!-- 不需要插槽 -->
+                <el-table-column v-else :key="index" :prop="item.name" :label="item.label"
+                    :min-width="item.width ? item.width : 125"></el-table-column>
+            </template>
+            <el-table-column v-if="hasOperate" label="操作" width="280" fixed="right">
+                <template slot-scoped="{row}">
+                    <el-button size="small" type="warning" title="编辑" icon="el-icon-edit"
+                        @click="edit(row)"></el-button>
+                    <el-button size="small" type="danger" title="删除" icon="el-icon-remove-outline"
+                        slot="reference"></el-button>
+                    <el-popconfirm confirm-button-text='确定' cancel-button-text='我再想想' icon="el-icon-info"
+                        icon-color="red" title="确定删除吗？" @confirm="del(row)"></el-popconfirm>
+                    <slot name="slot1" :data="scope.row"></slot>
+                </template>
+            </el-table-column>
+        </el-table>
+        <!-- 分页器 -->
+        <el-pagination style="margin-top:10px ;" layout="->,total,sizes,prev,pager,next,jumper"
+            :page-size="pageConfig.size ? pageConfig.size : 10" :page-sizes="[5, 10, 15, 20]" :total="pageConfig.total"
+            :current-page.sync="pageConfig.current" @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"></el-pagination>
+    </div>
+
+</template>
+
+<script>
+export default {
+    name: 'CommonTable',
+    data() {
+        return {
+        };
+    },
+    props: {
+        height: Number,
+        hasSelect: {
+            type: Boolean,
+
+        },
+        hasIndex: {
+            type: Boolean,
+
+        },
+        hasOperate: {
+            type: Boolean,
+
+        },
+        tableData: Array,
+        columnOptions: Array,
+        pageConfig: Object
+    },
+    methods: {
+        edit(row) {
+
+        },
+        del(row) {
+
+        },
+        //分页器每页显示多少
+        handleSizeChange(size) {
+            this.$bus.$emit("changeSize", size);
+        },
+        handleCurrentChange(page) {
+            this.$bus.$emit("changeCurrent", page);
+        },
+        selectionChange() {
+
+        }
+    },
+};
+</script>
+<style  scoped>
+
+</style>
