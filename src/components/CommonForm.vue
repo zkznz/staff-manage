@@ -32,7 +32,8 @@
                 <el-select v-if="item.type == 'select'" v-model="formData[item.name]"
                     :placeholder="item.placeholder || `请选择${item.label}`">
                     <el-option v-for="option in item.optionList" :key="option.id" :label="option.name"
-                        :value="option.typeId || option.id" :disabled="option.disabled || option.status == 0"></el-option>
+                        :value="option.typeId || option.id"
+                        :disabled="option.disabled || option.status == 0"></el-option>
 
                 </el-select>
                 <!-- 头像上传 -->
@@ -41,6 +42,10 @@
                     <i class="el-icon-plus"></i>
 
                 </el-upload>
+
+            </el-form-item>
+            <el-form-item>
+                <slot></slot>
             </el-form-item>
         </el-form>
     </div>
