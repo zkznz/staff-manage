@@ -1,7 +1,7 @@
 <template>
     <div>
-        <el-table :data="tableData" @selection-change="selectionChange" :height="height ? `${height}px` : '85%'" border
-            stripe row-key="id" :header-cell-style="{
+        <el-table :data="tableData" @selection-change="selectionChange" :height="height ? height : '85%'" border stripe
+            row-key="id" :header-cell-style="{
                 background: '#eef1f6', color: '#606266',
                 textAlign: 'center', fontWeight: 'bold'
             }">
@@ -12,7 +12,7 @@
                 <!-- 需要使用插槽 -->
                 <el-table-column v-if="item.columnType" :key="item.label" :label="item.label"
                     :min-width="item.width ? item.width : 125">
-                    <template slot-scope="{ row }">
+                    <template v-slot="{ row }">
                         <slot :name="item.slotName" :data="row"></slot>
                     </template>
                 </el-table-column>
@@ -20,16 +20,22 @@
                 <el-table-column v-else :key="index" :prop="item.name" :label="item.label"
                     :min-width="item.width ? item.width : 125"></el-table-column>
             </template>
-            <el-table-column v-if="hasOperate" label="操作" width="280" fixed="right">
-                <template slot-scoped="{row}">
-                    <el-button size="small" type="warning" title="编辑" icon="el-icon-edit"
-                        @click="edit(row)"></el-button>
-                    <el-button size="small" type="danger" title="删除" icon="el-icon-remove-outline"
-                        slot="reference"></el-button>
+            <el-table-column v-if="hasOperate" label="操作" :width="operateWidth ? operateWidth : 240" fixed="right">
+                <template v-slot="{ row }">
+                    <el-button size="mini" type="warning" title="编辑" icon="el-icon-edit"
+                        @click="edit(row)">编辑</el-button>
+
                     <el-popconfirm confirm-button-text='确定' cancel-button-text='我再想想' icon="el-icon-info"
-                        icon-color="red" title="确定删除吗？" @confirm="del(row)"></el-popconfirm>
-                    <slot name="slot1" :data="scope.row"></slot>
+                        icon-color="red" title="确定删除吗？" @confirm="del(row)">
+                        <el-button size="mini" type="danger" title="删除" icon="el-icon-remove-outline"
+                            slot="reference">删除</el-button>
+                    </el-popconfirm>
+                    <slot name="slot1" :data="row"></slot>
                 </template>
+
+
+
+
             </el-table-column>
         </el-table>
         <!-- 分页器 -->
@@ -64,14 +70,16 @@ export default {
         },
         tableData: Array,
         columnOptions: Array,
-        pageConfig: Object
+        pageConfig: Object,
+        operateWidth: Number,
     },
     methods: {
         edit(row) {
-
+            console.log(row);
+            this.$bus.$emit("edit", row);
         },
         del(row) {
-
+            this.$bus.$emit("del", row);
         },
         //分页器每页显示多少
         handleSizeChange(size) {
@@ -80,12 +88,14 @@ export default {
         handleCurrentChange(page) {
             this.$bus.$emit("changeCurrent", page);
         },
-        selectionChange() {
-
+        selectionChange(val) {
+            this.$bus.$emit("select", val);
         }
     },
 };
 </script>
 <style  scoped>
-
+.el-button {
+    margin-left: 10px;
+}
 </style>
