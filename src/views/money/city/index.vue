@@ -21,7 +21,7 @@
         </div>
         <!-- 搜索框 -->
         <CommonForm :formData="searchForm.formData" :formItemList="searchForm.formItemList" :inline="searchForm.inline">
-            <el-button type="primary" icon="el-icon-search" size="mini">搜索</el-button>
+            <el-button type="primary" icon="el-icon-search" size="mini" @click="search">搜索</el-button>
             <el-button type="danger" icon="el-icon-refresh-left" @click="reset" size="mini">重置</el-button>
         </CommonForm>
         <!-- 表格 -->
@@ -352,7 +352,7 @@ export default {
                 this.$message("批量删除失败！");
             }
         },
-        serach() {
+        search() {
             this.loading();
         },
         reset() {
