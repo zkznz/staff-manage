@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-menu background-color="#333744" :collapse="isCollapse" text-color="#fff" active-text-color="#409EFF" router
-            :unique-opened="true" :default-active="$route.path" :collapse-transition="false">
+            :default-active="$route.path" :collapse-transition="false">
             <el-menu-item v-for="menu in noChildren" :index="menu.path" :key="menu.path" @click="clickMenu(menu)">
                 <i :class="`el-icon-${menu.icon}`"></i>
                 <span slot="title">{{ menu.name }}</span>

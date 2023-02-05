@@ -290,9 +290,6 @@ export default {
     created() {
         this.loading();
     },
-    mounted() {
-
-    }
 };
 </script>
 <style  scoped>

@@ -94,7 +94,19 @@ export default {
     },
 };
 </script>
-<style  scoped>
+<style lang="scss"  scoped>
+::v-deep .el-table__row {
+    td:not(.is-hidden):last-child {
+        border-left: 1px solid #dfe6ec;
+    }
+}
+
+::v-deep .el-table__header {
+    th:not(.is-hidden):last-child {
+        border-left: 1px solid #dfe6ec;
+    }
+}
+
 .el-button {
     margin-left: 10px;
 }

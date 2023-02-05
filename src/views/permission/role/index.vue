@@ -288,7 +288,7 @@ export default {
         this.$bus.$on("edit", row => {
             this.handleEdit(row)
         })
-        this.$bus.$on("selectionChange", val => {
+        this.$bus.$on("select", val => {
             this.ids = val.map(item => item.id) // [{},{},{}] => [1,2,3]
         })
     },
@@ -298,7 +298,7 @@ export default {
         this.$bus.$off("currentChange")
         this.$bus.$off("del")
         this.$bus.$off("edit")
-        this.$bus.$off("selectionChange")
+        this.$bus.$off("select")
     }
 };
 </script>
