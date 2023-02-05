@@ -22,7 +22,7 @@
             </template>
             <el-table-column v-if="hasOperate" label="操作" :width="operateWidth ? operateWidth : 240" fixed="right">
                 <template v-slot="{ row }">
-                    <el-button size="mini" type="warning" title="编辑" icon="el-icon-edit"
+                    <el-button size="mini" type="primary" title="编辑" icon="el-icon-edit"
                         @click="edit(row)">编辑</el-button>
 
                     <el-popconfirm confirm-button-text='确定' cancel-button-text='我再想想' icon="el-icon-info"
