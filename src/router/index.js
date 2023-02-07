@@ -62,7 +62,6 @@ router.beforeEach(async (to, from, next) => {
   else {
     if (to.path == '/login') {
       next();
-      console.log("没有token");
     }
     else
       next('/login');

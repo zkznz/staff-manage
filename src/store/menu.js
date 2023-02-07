@@ -56,6 +56,7 @@ const getAsyncRoutes = (menuList) => {
         }
         asyncRoutes.children.push(route);
     })
+
     console.log("asyncRoutes：", asyncRoutes);
     return asyncRoutes;
 }
