@@ -56,7 +56,7 @@ const getAsyncRoutes = (menuList) => {
         }
         asyncRoutes.children.push(route);
     })
-
+    asyncRoutes.children.push({ path: '*', redirect: '/404' })
     console.log("asyncRoutes：", asyncRoutes);
     return asyncRoutes;
 }
