@@ -11,7 +11,7 @@
             <template v-for="(item, index) in columnOptions">
                 <!-- 需要使用插槽 -->
                 <el-table-column v-if="item.columnType" :key="item.label" :label="item.label"
-                    :min-width="item.width ? item.width : 125">
+                    :min-width="item.width ? item.width : 125" :fixed="item.fixed">
                     <template v-slot="{ row }">
                         <slot :name="item.slotName" :data="row"></slot>
                     </template>
@@ -83,10 +83,10 @@ export default {
         },
         //分页器每页显示多少
         handleSizeChange(size) {
-            this.$bus.$emit("changeSize", size);
+            this.$bus.$emit("sizeChange", size);
         },
         handleCurrentChange(page) {
-            this.$bus.$emit("changeCurrent", page);
+            this.$bus.$emit("currentChange", page);
         },
         selectionChange(val) {
             this.$bus.$emit("select", val);

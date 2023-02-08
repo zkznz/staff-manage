@@ -10,7 +10,7 @@
 
                 <el-input-number v-if="item.type == 'number'" v-model="formData[item.name]"
                     :precision="item.precision == 0 ? 0 : 3" :disabled="item.disabled || false" :step="item.step"
-                    style="width:100%" :placeholder="item.placeholder || `请输入${item.label}`" :min="item.min">
+                    style="width:38%" :placeholder="item.placeholder || `请输入${item.label}`" :min="item.min">
                 </el-input-number>
                 <!-- 日期选择器 -->
                 <el-date-picker v-if="item.type == 'date'" v-model="formData[item.name]"

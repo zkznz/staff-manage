@@ -518,7 +518,7 @@ export default {
         this.$bus.$on("edit", row => {
             this.handleEdit(row)
         })
-        this.$bus.$on("selectionChange", val => {
+        this.$bus.$on("select", val => {
             this.ids = val.map(item => item.id) // [{},{},{}] => [1,2,3]
         })
     },
