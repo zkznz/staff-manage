@@ -49,7 +49,7 @@ router.beforeEach(async (to, from, next) => {
   const token = localStorage.getItem("token");
   //没有token返回登录页
   if (token) {
-    if (store.state.menu.menuList.length <= 1) {
+    if (to.matched.length == 0 && store.state.menu.menuList.length <= 1) {
       await store.dispatch("getMenuList");
       next({ ...to, replace: true });
     }

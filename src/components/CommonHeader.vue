@@ -10,7 +10,7 @@
 
                 <el-dropdown trigger="hover" size="mini" @command="handleCommand">
                     <span>
-                        <img alt="" :src="downloadApi + infoForm.formData.avatar" class="avatar" />
+                        <img alt="" :src="downloadApi + staff.avatar" class="avatar" />
                     </span>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item command="showInfo">个人中心</el-dropdown-item>
@@ -309,9 +309,6 @@ export default {
         downloadApi() {
             return getDownloadApi();
         },
-        avatar() {
-            return this.infoForm.formData.avatar;
-        },
         staff() {
             return JSON.parse(localStorage.getItem("staff"));
         },
@@ -451,19 +448,19 @@ export default {
         this.$bus.$on('uploadSuccess', docs => {
             this.infoForm.formData.avatar = docs.name
         });
-        this.$bus.$on('changeSize', size => {
+        this.$bus.$on('sizeChange', size => {
             this.table.pageConfig.size = size;
             this.loading();
         });
-        this.$bus.$on('changeCurrent', page => {
+        this.$bus.$on('currentChange', page => {
             this.table.pageConfig.current = page;
             this.loading();
         });
     },
     beforeDestroy() {
         this.$bus.$off('uploadSuccess');
-        this.$bus.$off('changeSize');
-        this.$bus.$off('changeCurrent');
+        this.$bus.$off('sizeChange');
+        this.$bus.$off('currentChange');
     }
 };
 </script>

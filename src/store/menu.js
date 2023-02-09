@@ -63,6 +63,7 @@ const getAsyncRoutes = (menuList) => {
 
 const mutations = {
     GET_MENULIST(state, menuList) {
+        console.log("menuList", menuList);
         menuList.forEach(menu => {
             state.menuList.push(menu);
         });
