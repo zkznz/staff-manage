@@ -7,7 +7,6 @@
                 <el-button size="mini" type="success" icon="el-icon-bottom">导入</el-button>
             </el-upload>
             <el-button type="warning" size="mini" @click="exportData" style="margin-left: 10px" icon="el-icon-top">导出
-
             </el-button>
         </div>
         <!-- 搜索框 -->

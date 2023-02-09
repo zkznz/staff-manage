@@ -258,8 +258,6 @@ export default {
         },
         //提交分配菜单
         async confirmMenu() {
-            console.log("checked:", this.$refs.tree.getCheckedKeys());
-            console.log("half", this.$refs.tree.getHalfCheckedKeys());
             let res = await setMenu(this.roleId, this.$refs.tree.getCheckedKeys().concat(this.$refs.tree.getHalfCheckedKeys()));
             if (res.code == 200) {
                 this.menuDialog.isShow = false;
