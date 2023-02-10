@@ -33,30 +33,33 @@
 
 
     <!--    数据表格-->
-    <div class="common-table">
-      <el-table :data="table.tableData" height="85%" border stripe row-key="id" :header-cell-style="{
-        background: '#eef1f6', color: '#606266',
-        textAlign: 'center', fontWeight: 'bold'
-      }">
-        <el-table-column prop="code" label="工号" min-width="125" />
-        <el-table-column prop="name" label="姓名" min-width="125" />
-        <el-table-column prop="deptName" label="部门" min-width="125" />
-        <el-table-column prop="phone" label="电话" min-width="125" />
-        <el-table-column v-for="index in dayNum" :label="index + '日'" :key="index" min-width="50">
-          <template v-slot="{ row }">
-            <div @click="changeStatus(row, index - 1)">
-              <el-tag :type="table.tagType[row.statusList[index - 1]]">
-                {{ scope.row.statusList[index - 1] }}
-              </el-tag>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-      <el-pagination layout="->,total,sizes,prev,pager,next,jumper"
-        :page-size="table.pageConfig.size ? table.pageConfig.size : 10" :page-sizes="[5, 10, 15, 20]"
-        :total="table.pageConfig.total" :current-page.sync="table.pageConfig.current" @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"></el-pagination>
-    </div>
+    <el-card>
+      <div>
+        <el-table :data="table.tableData" height="400" border stripe row-key="id" :header-cell-style="{
+          background: '#eef1f6', color: '#606266',
+          textAlign: 'center', fontWeight: 'bold'
+        }">
+          <el-table-column prop="code" label="工号" min-width="125" />
+          <el-table-column prop="name" label="姓名" min-width="125" />
+          <el-table-column prop="deptName" label="部门" min-width="125" />
+          <el-table-column prop="phone" label="电话" min-width="125" />
+          <el-table-column v-for="index in dayNum" :label="index + '日'" :key="index" min-width="70" align="center">
+            <template v-slot="{ row }">
+              <div @click="changeStatus(row, index - 1)">
+                <el-tag size="small" :type="table.tagType[row.statusList[index - 1]]">
+                  {{ row.statusList[index - 1] }}
+                </el-tag>
+              </div>
+            </template>
+          </el-table-column>
+        </el-table>
+        <el-pagination style="margin-top: 10px;" layout="->,total,sizes,prev,pager,next,jumper"
+          :page-size="table.pageConfig.size ? table.pageConfig.size : 10" :page-sizes="[5, 10, 15, 20]"
+          :total="table.pageConfig.total" :current-page.sync="table.pageConfig.current" @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"></el-pagination>
+      </div>
+    </el-card>
+
   </div>
 </template>
 <script>
