@@ -21,23 +21,33 @@ Vue、Axios、ElementUI、Vue-Router、Vuex、ECharts
 ### 五险一金
 ![](https://user-images.githubusercontent.com/113685347/217849594-27b10990-0982-4f5d-9167-e4f69894b3b0.png)
 
-![展示员工社保信息，可以对员工社保进行调整](https://user-images.githubusercontent.com/113685347/217850274-acf3569c-463e-43e3-8613-1f89c6d0b395.png)
+![](https://user-images.githubusercontent.com/113685347/217850274-acf3569c-463e-43e3-8613-1f89c6d0b395.png)
+
+展示员工社保信息，可以对员工社保进行调整
 
 ### 工资管理
 ![](https://user-images.githubusercontent.com/113685347/217850848-a3338e61-ee5b-45ab-9459-3628f3523180.png)
 
-![可以对员工工资明细进行修改](https://user-images.githubusercontent.com/113685347/217851085-26effe67-10d7-4261-a9b1-5b511eebc679.png)
+![](https://user-images.githubusercontent.com/113685347/217851085-26effe67-10d7-4261-a9b1-5b511eebc679.png)
+
+可以对员工工资明细进行修改
 
 ### 角色管理
-![能够修改角色权限](https://user-images.githubusercontent.com/113685347/217851906-2007311e-fbc8-46af-9e48-3838039307e7.png)
+![](https://user-images.githubusercontent.com/113685347/217851906-2007311e-fbc8-46af-9e48-3838039307e7.png)
+
+能够修改角色权限
 
 ### 部门管理
 ![](https://user-images.githubusercontent.com/113685347/217853890-422650de-bbe9-4f7a-9b4a-c1bee8d34339.png)
 
-![能够修改出勤时间](https://user-images.githubusercontent.com/113685347/217854096-abc6f4b9-c88f-43c5-9a3b-8a5cf03d117c.png)
+![](https://user-images.githubusercontent.com/113685347/217854096-abc6f4b9-c88f-43c5-9a3b-8a5cf03d117c.png)
+
+能够修改出勤时间
 
 ### 请假审批
 ![](https://user-images.githubusercontent.com/113685347/217854751-e14307b9-4a8b-4219-b3db-52cf8828732e.png)
 
 ### 考勤管理
-![记录员工考勤状态](https://user-images.githubusercontent.com/113685347/217855394-9d5dc4fd-8d76-4c8a-90ca-862791608329.png)
+![](https://user-images.githubusercontent.com/113685347/217855394-9d5dc4fd-8d76-4c8a-90ca-862791608329.png)
+
+记录员工考勤状态
