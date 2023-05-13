@@ -3,6 +3,8 @@
 ## 项目介绍
 这是人力资源管理系统的前端部分
 
+后端项目地址: [点此访问](https://github.com/chickenfooter/springboot-hrm)
+
 登录账号:admin 密码:123
 
 ### 技术栈
